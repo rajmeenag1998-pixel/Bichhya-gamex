@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bichhya GameX</title>
+
+<style>
+*{box-sizing:border-box}
+body{margin:0;font-family:Arial,sans-serif;background:#080b14;color:#fff}
+header{padding:18px;background:#111827;display:flex;justify-content:space-between;align-items:center}
+.logo{font-size:24px;font-weight:bold;color:#ff4757}
+.coins{background:#20293a;padding:10px 14px;border-radius:10px;color:#ffd166}
+.hero{text-align:center;padding:45px 15px}
+.hero h1{font-size:36px}
+.hero p{color:#aab4c7}
+.actions{text-align:center;margin:10px}
+button{border:0;border-radius:9px;padding:12px 18px;margin:5px;background:#ff4757;color:#fff;font-weight:bold}
+.green{background:#19b983}
+.games{max-width:900px;margin:auto;padding:20px;display:grid;grid-template-columns:repeat(2,1fr);gap:15px}
+.game{background:#111827;border:1px solid #29344b;border-radius:16px;padding:25px 10px;text-align:center}
+.icon{font-size:45px}
+@media(max-width:500px){.games{grid-template-columns:1fr}}
+</style>
+</head>
+
+<body>
+
+<header>
+<div class="logo">🍒 Bichhya GameX</div>
+<div class="coins">🪙 <span id="coins">10,000</span></div>
+</header>
+
+<section class="hero">
+<h1>Welcome to Bichhya GameX</h1>
+<p>Multi Gaming • Virtual Points • Fun</p>
+
+<div class="actions">
+<button class="green" onclick="addCoins()">➕ Add Demo Coins</button>
+<button onclick="bonus()">🎁 Daily Bonus</button>
+</div>
+</section>
+
+<section class="games">
+
+<div class="game">
+<div class="icon">✈️</div>
+<h2>Aviator</h2>
+<p>Virtual Points Demo</p>
+<button onclick="openGame('Aviator')">PLAY</button>
+</div>
+
+<div class="game">
+<div class="icon">🃏</div>
+<h2>Rummy</h2>
+<p>Virtual Points Demo</p>
+<button onclick="openGame('Rummy')">PLAY</button>
+</div>
+
+<div class="game">
+<div class="icon">♠️</div>
+<h2>Poker</h2>
+<p>Virtual Points Demo</p>
+<button onclick="openGame('Poker')">PLAY</button>
+</div>
+
+<div class="game">
+<div class="icon">🎰</div>
+<h2>Spin</h2>
+<p>Virtual Points Demo</p>
+<button onclick="openGame('Spin')">PLAY</button>
+</div>
+
+</section>
+
+<script>
+let coins=10000;
+let bonusTaken=false;
+
+function update(){
+document.getElementById("coins").textContent=
+coins.toLocaleString("en-IN");
+}
+
+function addCoins(){
+coins+=1000;
+update();
+alert("1000 Demo Coins Added!");
+}
+
+function bonus(){
+if(bonusTaken){
+alert("Today's demo bonus already taken.");
+return;
+}
+coins+=500;
+bonusTaken=true;
+update();
+alert("500 Demo Coins Added!");
+}
+
+function openGame(name){
+alert(name+" Demo");
+}
+
+update();
+</script>
+
+</body>
+</html>
