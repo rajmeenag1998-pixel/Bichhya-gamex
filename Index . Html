@@ -1,10 +1,210 @@
 <!DOCTYPE html>
-<html>
+<html lang="hi">
 <head>
-  <title>Cherry GameX</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Bichhya GameX</title>
+
+<style>
+body{
+    margin:0;
+    font-family:Arial,sans-serif;
+    background:#080b14;
+    color:white;
+}
+
+header{
+    padding:18px;
+    background:#111827;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.logo{
+    font-size:25px;
+    font-weight:bold;
+    color:#ff4757;
+}
+
+.wallet{
+    background:#20293a;
+    padding:10px 14px;
+    border-radius:10px;
+    color:#ffd166;
+}
+
+.hero{
+    text-align:center;
+    padding:45px 15px;
+}
+
+.hero h1{
+    font-size:38px;
+    margin:10px;
+}
+
+.hero p{
+    color:#aab4c7;
+}
+
+.games{
+    max-width:900px;
+    margin:auto;
+    padding:15px;
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
+    gap:15px;
+}
+
+.game{
+    background:#111827;
+    border:1px solid #29344b;
+    border-radius:16px;
+    padding:25px 15px;
+    text-align:center;
+}
+
+.icon{
+    font-size:45px;
+}
+
+.game button{
+    background:#ff4757;
+    border:0;
+    color:white;
+    padding:11px 18px;
+    border-radius:8px;
+    font-weight:bold;
+}
+
+.actions{
+    text-align:center;
+    margin:25px;
+}
+
+.actions button{
+    padding:13px 20px;
+    margin:5px;
+    border:0;
+    border-radius:9px;
+    background:#19b983;
+    color:white;
+    font-weight:bold;
+}
+</style>
 </head>
+
 <body>
-  <h1>🍒 Cherry GameX</h1>
-  <p>Virtual Gaming Demo</p>
+
+<header>
+
+<div class="logo">🎮 Bichhya GameX</div>
+
+<div class="wallet">
+🪙 <span id="coins">10,000</span>
+</div>
+
+</header>
+
+<section class="hero">
+
+<h1>Welcome to Bichhya GameX</h1>
+
+<p>Multi Gaming • Virtual Points • Fun</p>
+
+<div class="actions">
+
+<button onclick="addCoins()">
+➕ Add Demo Coins
+</button>
+
+<button onclick="bonus()">
+🎁 Daily Bonus
+</button>
+
+</div>
+
+</section>
+
+<section class="games">
+
+<div class="game">
+<div class="icon">✈️</div>
+<h3>Aviator</h3>
+<p>Virtual Points Demo</p>
+<button onclick="openGame('Aviator')">PLAY</button>
+</div>
+
+<div class="game">
+<div class="icon">🃏</div>
+<h3>Rummy</h3>
+<p>Virtual Points Demo</p>
+<button onclick="openGame('Rummy')">PLAY</button>
+</div>
+
+<div class="game">
+<div class="icon">♠️</div>
+<h3>Poker</h3>
+<p>Virtual Points Demo</p>
+<button onclick="openGame('Poker')">PLAY</button>
+</div>
+
+<div class="game">
+<div class="icon">🎰</div>
+<h3>Spin</h3>
+<p>Virtual Points Demo</p>
+<button onclick="openGame('Spin')">PLAY</button>
+</div>
+
+</section>
+
+<script>
+
+let coins = 10000;
+let bonusTaken = false;
+
+function update(){
+    document.getElementById("coins").innerText =
+    coins.toLocaleString("en-IN");
+}
+
+function addCoins(){
+
+    coins += 1000;
+
+    update();
+
+    alert("1000 Demo Coins Added!");
+}
+
+function bonus(){
+
+    if(bonusTaken){
+
+        alert("आज का Demo Bonus पहले ही लिया जा चुका है।");
+
+        return;
+    }
+
+    coins += 500;
+
+    bonusTaken = true;
+
+    update();
+
+    alert("500 Demo Coins मिले 🎁");
+}
+
+function openGame(name){
+
+    alert(name + " Demo जल्द खुलेगा!");
+
+}
+
+update();
+
+</script>
+
 </body>
 </html>
